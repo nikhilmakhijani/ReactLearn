@@ -24,4 +24,5 @@ jobs:
         ENV_VAL: PROD
        run: |
             echo "this is ${{ github.ref }}"
+            echo "env is ${{env.ENV}}"
     
