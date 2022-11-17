@@ -34,7 +34,7 @@ jobs:
 
      - name: check_both
        run: |
-            if [[ "${{ github.ref }}" == 'refs/heads/dev']] then
+            if [[ "${{ github.ref }}" == 'refs/heads/dev' ]] then
               echo "dev hai"
             else
               echo "prod"
