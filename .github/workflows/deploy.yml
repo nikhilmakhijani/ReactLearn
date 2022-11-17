@@ -21,12 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: check_PROD
-       env:
-        ENV_VAL: PROD
        if:  contains(github.ref, 'main')
        run: |
             echo "this is ${{ github.ref}}"
-            echo "env is ${{env.DEV_PROJECT_ID}}"
+            echo "env is ${{env.PROD_PROJECT_ID}}"
 
      - name: check_dev
        if:  contains(github.ref, 'dev')
