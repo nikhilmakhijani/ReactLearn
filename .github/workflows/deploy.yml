@@ -11,7 +11,7 @@ on:
 env:
   PROJECT_ID: yo
   FB_PROJECT_ID: "${{ github.ref }} === 'refs/heads/main' ? 'dhoom' : 'machale' "
-  PROD: contains(github.ref, 'main') 
+  PROD: "${contains(github.ref, 'main')} 
 
 jobs:
  
