@@ -9,9 +9,10 @@ on:
       - '**'
 
 env:
-  PROJECT_ID: yo
-  FB_PROJECT_ID: "${{ github.ref }} === 'refs/heads/main' ? 'dhoom' : 'machale' "
-  PROD: "${contains(github.ref, 'main')} 
+  DEV_PROJECT_ID: dev-project
+  DEV_FB_PROJECT_ID: dev-project-fb
+  PROD_PROJECT_ID: prod-project
+  PROD_FB_PROJECT_ID: prod-project-fb
 
 jobs:
  
@@ -25,5 +26,5 @@ jobs:
        run: |
           
             echo "this is ${{ github.ref}}"
-            echo "env is ${{env.PROD}}"
+            echo "env is ${{env.DEV_PROJECT_ID}"
     
