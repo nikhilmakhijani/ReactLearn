@@ -10,3 +10,4 @@ A stateless functional component is any function you write which accepts props a
 
 componentWillMount() componentDidMount() shouldComponentUpdate() componentDidUpdate() componentWillUnmount() The next several lessons will cover some of the basic use cases for these lifecycle methods.
 
+dhdhd
