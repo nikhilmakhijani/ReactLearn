@@ -23,13 +23,13 @@ jobs:
      - name: check_PROD
        env:
         ENV_VAL: PROD
-       if:  if(contains(github.ref, 'main'))
+       if:  contains(github.ref, 'main')
        run: |
             echo "this is ${{ github.ref}}"
             echo "env is ${{env.DEV_PROJECT_ID}}"
 
      - name: check_dev
-       if:  if(contains(github.ref, 'dev'))
+       if:  contains(github.ref, 'dev')
        run: |
             echo "this is ${{ github.ref}}"
             echo "env is ${{env.DEV_PROJECT_ID}}"
