@@ -1,0 +1,37 @@
+name: 'deploy'
+
+on:
+  push:
+    branches:
+      - '**'
+
+    tags:
+      - '**'
+
+env:
+  PROJECT_ID: "${{ github.ref }} === 'refs/heads/main' ? 'hello' : 'bye'"
+  FB_PROJECT_ID: "${{ github.ref }} === 'refs/heads/main' ? 'dhoom' : 'machale' "
+  ENV: "${{ github.ref }} === 'refs/heads/main' ? 'PROD' : ${{ github.ref }} === 'refs/heads/dev' ? 'DEV' : 'Test'"
+
+jobs:
+ 
+  test-work:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+     - name: check_PROD
+       env:
+        ENV_VAL: PROD
+       run: |
+          if [["${{ github.ref }} === 'refs/heads/main']]; then
+            echo "this is ${{env.ENV_NAME}}"
+          fi
+      
+     - name: check_DEV
+       env:
+        ENV_VAL: DEV
+       run: |
+          if [["${{ github.ref }} === 'refs/heads/dev']]; then
+            echo "this is ${{env.ENV_NAME}}"
+          fi
+  
