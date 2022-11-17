@@ -9,9 +9,10 @@ on:
       - '**'
 
 env:
-  PROJECT_ID: "${{ github.ref }} === 'refs/heads/main' ? 'hello' : 'bye'"
-  FB_PROJECT_ID: "${{ github.ref }} === 'refs/heads/main' ? 'dhoom' : 'machale' "
-  ENV: "${{ github.ref }} === 'refs/heads/main' ? 'PROD' : ${{ github.ref }} === 'refs/heads/dev' ? 'DEV' : 'Test'"
+  DEV_PROJECT_ID: dev-project
+  DEV_FB_PROJECT_ID: dev-project-fb
+  PROD_PROJECT_ID: prod-project
+  PROD_FB_PROJECT_ID: prod-project-fb
 
 jobs:
  
@@ -20,18 +21,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: check_PROD
-       env:
-        ENV_VAL: PROD
+       if:  contains(github.ref, 'main')
        run: |
-          if [["${{ github.ref }} === 'refs/heads/main']]; then
-            echo "this is ${{env.ENV_NAME}}"
-          fi
-      
-     - name: check_DEV
-       env:
-        ENV_VAL: DEV
+            echo "this is ${{ github.ref}}"
+            echo "env is ${{env.PROD_PROJECT_ID}}"
+
+     - name: check_dev
+       if:  contains(github.ref, 'dev')
        run: |
-          if [["${{ github.ref }} === 'refs/heads/dev']]; then
-            echo "this is ${{env.ENV_NAME}}"
-          fi
-  
+            echo "this is ${{ github.ref}}"
+            echo "env is ${{env.DEV_PROJECT_ID}}"
+    
