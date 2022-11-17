@@ -12,4 +12,3 @@ componentWillMount() componentDidMount() shouldComponentUpdate() componentDidUpd
 
 
 
-yo
