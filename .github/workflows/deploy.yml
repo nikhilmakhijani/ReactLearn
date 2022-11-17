@@ -9,9 +9,9 @@ on:
       - '**'
 
 env:
-  PROJECT_ID: "${{ github.ref }} === 'refs/heads/main' ? 'hello' : 'bye'"
+  PROJECT_ID: "${{ github.ref }} === 'refs/heads/main'" ? 'hello' : 'bye'
   FB_PROJECT_ID: "${{ github.ref }} === 'refs/heads/main' ? 'dhoom' : 'machale' "
-  ENV: "${{ github.ref }} === 'refs/heads/main' ? 'PROD' : ${{ github.ref }} === 'refs/heads/dev' ? 'DEV' : 'Test'"
+  ENV: "${{ github.ref }} === 'refs/heads/main'" ? 'PROD' : "${{ github.ref }} === 'refs/heads/dev'" ? 'DEV' : 'Test'
 
 jobs:
  
@@ -23,6 +23,7 @@ jobs:
        env:
         ENV_VAL: PROD
        run: |
+          
             echo "this is ${{ github.ref }}"
             echo "env is ${{env.ENV}}"
     
