@@ -23,7 +23,7 @@ jobs:
        env:
         ENV_VAL: PROD
        run: |
-          if [["${{ github.ref }}" === 'refs/heads/main']]; then
+          if [["${{ github.ref }}" === "refs/heads/main"]]; then
             echo "this is ${{env.ENV_NAME}}"
           fi
       
@@ -31,7 +31,7 @@ jobs:
        env:
         ENV_VAL: DEV
        run: |
-          if [["${{ github.ref }}" === 'refs/heads/dev']]; then
-            echo "this is ${{env.ENV_NAME}}"
+          if [["${{ github.ref }}" === "refs/heads/dev"]]; then
+            echo "this is ${{env.ENV}"
           fi
   
