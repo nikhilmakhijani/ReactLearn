@@ -27,8 +27,16 @@ jobs:
             echo "env is ${{env.PROD_PROJECT_ID}}"
 
      - name: check_dev
-       if:  contains(github.ref, 'dev')
+       if:  github.ref == 'refs/heads/dev'
        run: |
             echo "this is ${{ github.ref}}"
             echo "env is ${{env.DEV_PROJECT_ID}}"
-    
+
+     - name: check_both
+       if: github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main'
+       run: |
+            if [[ "${{ github.ref }}" == 'refs/heads/dev' ]]; then
+              echo "dev hai"
+            else
+              echo "prod"
+            fi
